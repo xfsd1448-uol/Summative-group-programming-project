@@ -6,7 +6,7 @@ def generate_means_sequence(collated_path):
     
     
     respondents_data = file_content.split('*')
-    
+
     
     all_answers = []
     
