@@ -1,7 +1,32 @@
-import requests
 
-def download_answer_files(path_to_data_folder, respondent_index):
-    cloud_urls = [
+import os
+import requests
+def download_answer_files(direct_links, path_to_data_folder, respondent_index):
+    
+
+    
+ 
+    
+ 
+    download_url = direct_links[respondent_index]
+
+    save_path = os.path.join(path_to_data_folder, f"answers_respondent_{respondent_index}.txt")
+
+    response = requests.get(download_url)
+ 
+    if response.status_code == 200:
+
+         with open(save_path, "wb") as file:
+
+             file.write(response.content)
+
+         print(f"Downloaded and saved respondent {respondent_index} to {save_path}")
+
+    else:
+
+         print(f"Failed to download respondent {respondent_index} (Status {response.status_code})")
+
+direct_links = [
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/Edp4Leus4bhInnTwC61pAGABl7kYZ46ooAW39kkvdGgMoQ?e=ecyH52&download=1",
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/EQfilZ0BXNVPvx99hbEIm6YBUAymqr5szFQ5fAHRjualDw?e=TqXtEM&download=1",
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/ETyN9xDQFLdAtndNs80-U20BH_QTPc4EgPt0SQAhcnTD7Q?e=nXbHFn&download=1",
@@ -18,29 +43,8 @@ def download_answer_files(path_to_data_folder, respondent_index):
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/EWTFBGLZdsRAlDmDTBLSzPQBa6DcR6YB3l41LkmEOJtVLA?e=BXcgnb&download=1",
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/EYz0ZnWS1qtLq04qmGQfmHQBdkTTfbDP-RjKPM25Vb18CQ?e=cAFdBP&download=1",
         "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/EWQRWwZ8ocZGs_a3eMG6fDYBG86IGqg7-rOfq9Tm0f93yg?e=GTwfNN&download=1",
-        "https://leeds365-my.sharepoint.com/:t:/g/personal/mbhs1277_leeds_ac_uk/EU5jqGOxHZ1HscYQYNTpaVIBo2bT2tY1n9oPfqr-egORLw?e=khJaWE&download=1"
+        
 
         
     ]
-
-    if 1 <= respondent_index <= len(cloud_urls):
-        file_url = cloud_urls[respondent_index - 1]
-        file_name = f'a{respondent_index}.txt'
-
-        response = requests.get(file_url)
-        if response.status_code == 200:
-            save_path = f"{path_to_data_folder}/answers_respondent_{respondent_index}.txt"
-            with open(save_path, 'wb') as file:
-                file.write(response.content)
-            print(f" Downloaded and saved {file_name} to {path_to_data_folder}")
-        else:
-            print("Fail to download the file")
-            print(f"Status code: {response.status_code}")
-    else:
-        print(f"Invalid respondent index: {respondent_index}")
-
-
-download_answer_files("data", 1)
-
-
-
+download_answer_files(direct_links, "Data", 1)
