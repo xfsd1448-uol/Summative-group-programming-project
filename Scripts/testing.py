@@ -62,7 +62,7 @@ download_answer_files(direct_links, "Data", 2)
 
 def collate_answer_files(data_folder_path):
     # Create output folder if it doesn't exist
-    output_folder = "output"
+    output_folder = "Output"
     os.makedirs(output_folder, exist_ok=True)
     
     # Path for the output file
