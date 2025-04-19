@@ -50,5 +50,25 @@ cloud_urls= [
     ]
 download_answer_files(cloud_urls, "data", 2)
 
+def collate_answer_files(data_folder_path):
+    # Manually construct the list of filenames in the folder
+    # (requires that data_folder_path ends with a slash and only contains files)
+    filenames = sorted(open("files.txt").read().splitlines())  # See note below
+
+    output_file = open("output/collated_answers.txt", "w")
+
+    for i in range(len(filenames)):
+        filepath = data_folder_path + filenames[i]
+        infile = open(filepath, "r")
+        content = infile.read().strip()
+        infile.close()
+        output_file.write(content)
+        if i < len(filenames) - 1:
+            output_file.write("\n*\n")
+
+    output_file.close()
+    print("Collated file created at output/collated_answers.txt")
+
+
 
 

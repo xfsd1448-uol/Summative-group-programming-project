@@ -56,4 +56,34 @@ direct_links = [
 
         
     ]
-download_answer_files(direct_links, "Data", 1)
+download_answer_files(direct_links, "Data", 2)
+
+
+
+def collate_answer_files(data_folder_path):
+    # Create output folder if it doesn't exist
+    output_folder = "output"
+    os.makedirs(output_folder, exist_ok=True)
+    
+    # Path for the output file
+    output_file_path = os.path.join(output_folder, "collated_answers.txt")
+    
+    # Open the output file for writing
+    with open(output_file_path, 'w') as outfile:
+        # List and sort the files for consistent order
+        files = sorted(os.listdir(data_folder_path))
+        
+        for i, filename in enumerate(files):
+            file_path = os.path.join(data_folder_path, filename)
+            
+            # Ensure it's a file (not a directory)
+            if os.path.isfile(file_path):
+                with open(file_path, 'r') as infile:
+                    outfile.write(infile.read().strip())  # Strip to avoid trailing newlines
+                # Add separator unless it's the last file
+                if i < len(files) - 1:
+                    outfile.write("\n*\n")
+
+    print(f"Collated file created at {output_file_path}")
+
+collate_answer_files("Data")
