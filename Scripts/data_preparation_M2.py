@@ -5,7 +5,7 @@ def download_answer_files(cloud_urls, path_to_data_folder, respondent_index):
 
     if 1 <= respondent_index <= len(cloud_urls):
         file_url = cloud_urls[respondent_index - 1]
-        file_name = f'a{respondent_index}.txt'
+        file_name = f'answers_respondent_{respondent_index}.txt'
 
         response = requests.get(file_url)
         if response.status_code == 200:
@@ -48,7 +48,7 @@ cloud_urls= [
 
         
     ]
-download_answer_files(cloud_urls, "data", 2)
+download_answer_files(cloud_urls, "data", 3)
 
 def collate_answer_files(data_folder_path):
     # Manually construct the list of filenames in the folder
