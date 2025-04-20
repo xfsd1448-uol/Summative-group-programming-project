@@ -17,7 +17,7 @@ def extract_answers_sequence(filepath):
             j += 1
     return answers
 
-file_path = r"/Users/abdallaalbaker/Desktop/Summative-group-programming-project/Data/a2.txt"
+file_path = r"Data/answers_respondent_1.txt"
 ans = extract_answers_sequence(file_path)
 print(ans)
 
