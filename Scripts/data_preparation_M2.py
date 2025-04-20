@@ -51,14 +51,13 @@ cloud_urls= [
 
 
 def collate_answer_files(data_folder_path):
-    # Manually construct the list of filenames in the folder
-    # (requires that data_folder_path ends with a slash and only contains files)
-    filenames = open("files.txt", "r").read().splitlines()  # See note below
+    # Read file names from files.txt
+    filenames = open("files.txt", "r").read().splitlines()
 
     output_file = open("Output/collated_answers.txt", "w")
 
     for i in range(len(filenames)):
-        filepath = data_folder_path + filenames[i]
+        filepath = data_folder_path + "/" + filenames[i]
         infile = open(filepath, "r")
         content = infile.read().strip()
         infile.close()
@@ -69,6 +68,6 @@ def collate_answer_files(data_folder_path):
     output_file.close()
     print("Collated file created at Output/collated_answers.txt")
 
-collate_answer_files("Data/")
+collate_answer_files("Data")
 
 
