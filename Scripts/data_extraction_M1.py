@@ -1,0 +1,69 @@
+def extract_answers_sequence(filepath):
+    j = 0 
+    answers = []
+    f = open(file_path, 'r')
+    rows = [row.strip() for row in f.readlines()]
+    while j < len(rows):
+        lines = rows[j]
+        if lines.startswith("Question"):
+            choosen_answer = 0 
+            for k in range(4):
+                answer_lines = rows[j + 1 + k] 
+                if "[x]" in answer_lines:
+                    choosen_answer = k + 1
+            answers.append(choosen_answer)
+            j += 5        
+        else:
+            j += 1
+    return answers
+
+file_path = r"/Users/abdallaalbaker/Desktop/Summative-group-programming-project/Data/a2.txt"
+ans = extract_answers_sequence(file_path)
+print(ans)
+
+def write_answers_sequence(answers, n):
+    file_name = f"answers_list_respondent_{n}.txt"
+    x = open(file_name, "a")
+    for digit in answers:
+        x.write(f"{digit}\n")
+    x.close()    
+write_answers_sequence(ans,2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
