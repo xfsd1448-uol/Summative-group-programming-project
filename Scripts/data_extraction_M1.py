@@ -1,7 +1,7 @@
 def extract_answers_sequence(filepath):
     j = 0 
     answers = []
-    f = open(file_path, 'r')
+    f = open(filepath, 'r')
     rows = [row.strip() for row in f.readlines()]
     while j < len(rows):
         lines = rows[j]
@@ -17,9 +17,6 @@ def extract_answers_sequence(filepath):
             j += 1
     return answers
 
-file_path = r"Data/answers_respondent_1.txt"
-ans = extract_answers_sequence(file_path)
-print(ans)
 
 def write_answers_sequence(answers, n):
     file_name = f"answers_list_respondent_{n}.txt"
