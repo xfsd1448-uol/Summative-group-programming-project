@@ -2,7 +2,7 @@ import data_extraction_M1 as M1
 import ast
 def generate_means_sequence(collated_path):
    
-    file = open("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt",'r')
+    file = open("Output/collated_answers.txt",'r')
     file_content = file.read()
     file.close()
     
@@ -58,5 +58,4 @@ def generate_means_sequence(collated_path):
     
     return means
 
-generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt")
-print(generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt"))
+generate_means_sequence("Output/collated_answers.txt")

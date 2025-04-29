@@ -20,11 +20,11 @@ def extract_answers_sequence(filepath):
 
 def write_answers_sequence(answers, n):
     file_name = f"answers_list_respondent_{n}.txt"
-    x = open(file_name, "a")
+    x = open(file_name, "w")
     for digit in answers:
         x.write(f"{digit}\n")
     x.close()    
-write_answers_sequence(ans,2)
+
 
 
 
