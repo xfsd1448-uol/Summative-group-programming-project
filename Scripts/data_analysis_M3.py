@@ -1,8 +1,10 @@
 import data_extraction_M1 as M1
 import ast
+import data_extraction_M1 as M1
+import ast
 def generate_means_sequence(collated_path):
    
-    file = open("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt",'r')
+    file = open(collated_path, 'r')
     file_content = file.read()
     file.close()
     
@@ -57,6 +59,3 @@ def generate_means_sequence(collated_path):
         means.append(average)
     
     return means
-
-generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt")
-print(generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt"))
