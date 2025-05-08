@@ -55,3 +55,4 @@ def visualize_data(collated_answers_path, n):
 
     else:
         print("Invalid value for n. Use 1 (scatter) or 2 (line).")
+visualize_data("Output/collated_answers.txt", 1)
