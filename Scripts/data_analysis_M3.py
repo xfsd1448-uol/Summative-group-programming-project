@@ -26,7 +26,7 @@ def generate_means_sequence(collated_path):
 print(generate_means_sequence("Output/collated_answers.txt"))
 
 plt.figure(figsize=(12, 6))
-plt.scatter(range(1, 101), means, color='blue', alpha=0.7)
+plt.scatter(range(1, 101), generate_means_sequence("Output/collated_answers.txt"), color='blue', alpha=0.7)
 plt.title('Mean Answer Values per Question')
 plt.xlabel('Question Number')
 plt.ylabel('Mean Answer Value (1-4)')
