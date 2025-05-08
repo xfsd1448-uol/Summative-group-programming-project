@@ -43,16 +43,15 @@ def visualize_data(collated_answers_path, n):
     if n == 2:
         # Plot all respondents' answer sequences
         plt.figure(figsize=(12, 6))
-        for i, seq in enumerate(respondents):  # 遍历每个回答者的序列
+        for i, seq in enumerate(respondents): 
             plt.plot(range(1, 101), seq, alpha=0.3,linewidth=1)               
         plt.title('All Respondents\' Answer line Graphs')
         plt.xlabel('Question Number')
         plt.ylabel('Answer Value (0=unanswered, 1-4=options)')
-        plt.xticks(range(0, 101, 10))          # x轴刻度每10题一个
-        plt.yticks(range(0, 5))                # y轴刻度0-4
+        plt.xticks(range(0, 101, 10))         
+        plt.yticks(range(0, 5))              
         plt.grid(True, linestyle='--', alpha=0.5)
         plt.show()
 
     else:
         print("Invalid value for n. Use 1 (scatter) or 2 (line).")
-visualize_data("Output/collated_answers.txt", 1)
