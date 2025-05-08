@@ -27,7 +27,7 @@ def generate_means_sequence(collated_path):
 
 def visualize_data(collated_answers_path, n):
     file_content = M1.extract_answers_sequence("Output/collated_answers.txt")
-    
+
     respondents = [file_content[i:i+100] for i in range(0, len(file_content), 100)]
 
     if n == 1:
@@ -54,5 +54,5 @@ def visualize_data(collated_answers_path, n):
         plt.grid(True, linestyle='--', alpha=0.5)
         plt.show()
 
-    else:
+    if n not in [1, 2]:
         print("Invalid value for n. Use 1 (scatter) or 2 (line).")

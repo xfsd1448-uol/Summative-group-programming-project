@@ -34,7 +34,6 @@ cloud_urls= [
     ]
 data_folder = "Data"
 output_folder = "Output"
-n = 1 
 
 
 M2.download_answer_files(cloud_urls, data_folder, respondent_index=25)  
@@ -49,4 +48,10 @@ for i in range(1, 26):
 collated_file = f"{output_folder}/collated_answers.txt"
 means_sequence = M3.generate_means_sequence(collated_file)
 M3.visualize_data(collated_file, n=1)
+M3.visualize_data(collated_file, n=2)
+
+# Test for error message
+M3.visualize_data(collated_file, n=3)
+
+
     
