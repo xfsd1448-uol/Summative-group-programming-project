@@ -61,5 +61,3 @@ def collate_answer_files(data_folder_path):
 
 collate_answer_files("Data/")
  
-
-
