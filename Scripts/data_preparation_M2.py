@@ -35,7 +35,7 @@ def collate_answer_files(data_folder_path):
 
     for i in range(len(filenames)):
 
-        filepath = data_folder_path + filenames[i]
+        filepath = data_folder_path + "/" + filenames[i]
 
         with open(filepath, "r") as file:
             x = file.read().strip()

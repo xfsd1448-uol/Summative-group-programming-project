@@ -47,5 +47,5 @@ for i in range(1, 26):
 
 collated_file = f"{output_folder}/collated_answers.txt"
 means_sequence = M3.generate_means_sequence(collated_file)
-#M3.visualize_data(collated_file, n)
+M3.visualize_data(collated_file, n=1)
     

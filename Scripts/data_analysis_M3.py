@@ -1,9 +1,9 @@
 import data_extraction_M1 as M1
 import matplotlib.pyplot as plt
  
-file_content = M1.extract_answers_sequence("Output/collated_answers.txt")
 
 def generate_means_sequence(collated_path):
+    file_content = M1.extract_answers_sequence("Output/collated_answers.txt")
   
     total_respondents = len(file_content) // 100  
  
@@ -23,10 +23,11 @@ def generate_means_sequence(collated_path):
  
     return means
  
-print(generate_means_sequence("Output/collated_answers.txt"))
 
 
 def visualize_data(collated_answers_path, n):
+    file_content = M1.extract_answers_sequence("Output/collated_answers.txt")
+    
     respondents = [file_content[i:i+100] for i in range(0, len(file_content), 100)]
 
     if n == 1:
