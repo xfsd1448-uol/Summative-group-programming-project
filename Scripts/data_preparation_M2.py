@@ -22,32 +22,25 @@ def download_answer_files(cloud_urls, path_to_data_folder, respondent_index):
 
 
 
-
 def collate_answer_files(data_folder_path):
-
-    # Ensure path ends with a slash
-
-    if not data_folder_path.endswith('/'):
-
-        data_folder_path += '/'
-
-    # Manually list all 25 filenames (since files.txt is missing)
+   
 
     filenames = [f"answers_respondent_{i}.txt" for i in range(1, 26)]
 
-    # Open output file (will crash if Output/ doesn't exist)
+    
 
     output_file = open("Output/collated_answers.txt", "w")
 
-    # Process each file (will crash if any file is missing)
+    
 
     for i in range(len(filenames)):
 
         filepath = data_folder_path + filenames[i]
 
-        content = open(filepath, "r").read().strip()
+        with open(filepath, "r") as file:
+            x = file.read().strip()
 
-        output_file.write(content)
+        output_file.write(x)
 
         if i < len(filenames) - 1:
 
@@ -57,7 +50,16 @@ def collate_answer_files(data_folder_path):
 
     print("Collated file created at Output/collated_answers.txt")
  
-# Call the function (adjust path if needed)
 
-collate_answer_files("Data/")
+
+
+ 
+
+
+ 
+
+
+
+
+
  
