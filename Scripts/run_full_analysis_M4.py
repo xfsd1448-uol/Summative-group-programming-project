@@ -1,6 +1,6 @@
 import data_extraction_M1 as M1
 import data_preparation_M2 as M2
-import mockM3 as M3
+import data_analysis_M3 as M3
 
 
 cloud_urls= [
