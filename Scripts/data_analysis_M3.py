@@ -1,62 +1,27 @@
 import data_extraction_M1 as M1
-import ast
+ 
 def generate_means_sequence(collated_path):
-   
-    file = open("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt",'r')
-    file_content = file.read()
-    file.close()
-    
-    
-    #respondents_data = file_content.split('*')
-
-    
-    #all_answers = []
-    
-    
-    #for respondent in file_content:
-        
-        #if respondent.strip() == "":
-            #continue
-            
-    text = [file_content]
-    answers = []
-    
-        #answers = ast.literal_eval(respondent.strip())
-        #for line in file_content.split('\n'):
-            #answers = ast.literal_eval(file_content.strip())
-            #if line.strip() != "":
-                # This simplifies the processing and actually requires parsing according to the file format
-                #answers.append(float(line.strip()))  # Suppose each row is a number
-        
-        # Make sure there are 100 answers (less than 0)
-    while len(text) < 100:
-            text.append(0)
-            answers = file_content[:100]  # Just take the first 100
-        
-    #all_answers.append(answers)
-    
-    
+ 
+    # 提取所有回答（一个长 list）
+ 
+    file_content = M1.extract_answers_sequence(collated_path)
+ 
+    total_respondents = len(file_content) // 100  # 每人100题
+ 
     means = []
-    
-    for question_num in range(100):  
+ 
+    for question_index in range(100):  # 对每一题
+ 
         total = 0
-        #count = 0
-        
-        # Collect all respondents' responses to this question
-        for respondent_answers in answers:
-            answer = respondent_answers[question_num]
-            total += answer
-            #count += 1
-    count = len(answers)    
-        # Calculate the average
-    if count > 0:
-        average = total / count
-    else:
-        average = 0.0
-            
-        means.append(average)
-    
+ 
+        for i in range(question_index, len(file_content), 100):
+ 
+            total += file_content[i]
+ 
+        mean = total / total_respondents
+ 
+        means.append(mean)
+ 
     return means
-
-generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt")
-print(generate_means_sequence("/Users/tyb/teat_w5m/formative group task 2025.3/Summative-group-programming-project/Scripts/12.txt"))
+ 
+print(generate_means_sequence("Output/collated_answers.txt"))
