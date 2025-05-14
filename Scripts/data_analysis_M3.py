@@ -37,7 +37,7 @@ def visualize_data(collated_answers_path, n):
         plt.xlabel('Question Number')
         plt.ylabel('Mean Answer Value (1-4)')
         plt.xticks(range(0, 101, 10))
-        plt.yticks(range(1, 5))
+        plt.yticks(range(0, 5))
         plt.grid(True, linestyle='--', alpha=0.5)
         plt.show()
 
